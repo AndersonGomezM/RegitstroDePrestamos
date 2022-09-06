@@ -106,11 +106,11 @@ fun DefaultPreview() {
 
         Ocupacion(
             descripcion = "Contable",
-            sueldo = 5000,
+            sueldo = 5000.00f,
         ),
         Ocupacion(
             descripcion = "Ingeniero Civil",
-            sueldo = 10000,
+            sueldo = 10000.00f,
         )
     )
 

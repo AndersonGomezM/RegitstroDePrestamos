@@ -22,14 +22,14 @@ class OcupacionViewModel @Inject constructor(
 ) : ViewModel() {
 
     var descripcion by mutableStateOf("")
-    var sueldo by mutableStateOf(0)
+    var sueldo by mutableStateOf("")
 
     fun Save(){
         viewModelScope.launch {
-            repository.insertStudent(
+            repository.insertOcupacion(
                 Ocupacion(
                     descripcion = descripcion,
-                    sueldo = sueldo
+                    sueldo = sueldo.toFloat()
                 )
             )
         }

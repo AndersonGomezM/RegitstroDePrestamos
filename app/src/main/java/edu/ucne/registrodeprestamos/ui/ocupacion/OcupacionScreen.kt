@@ -49,8 +49,8 @@ fun OcupacionScreen(
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 label = { Text(text = "Sueldo") },
-                value = "${viewModel.sueldo}",
-                onValueChange = { "${viewModel.sueldo}"}
+                value = viewModel.sueldo,
+                onValueChange = { viewModel.sueldo = it }
             )
         }
     }

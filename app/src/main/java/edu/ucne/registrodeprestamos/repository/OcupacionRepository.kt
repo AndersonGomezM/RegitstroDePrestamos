@@ -7,15 +7,15 @@ import javax.inject.Inject
 
 class OcupacionRepository @Inject constructor(val db: AppDataBase) {
 
-    suspend fun insertStudent(ocupacion: Ocupacion) {
+    suspend fun insertOcupacion(ocupacion: Ocupacion) {
         db.ocupacionDao.insertOcupacion(ocupacion)
     }
 
-    suspend fun updateStudent(ocupacion: Ocupacion) {
+    suspend fun updateOcupacion(ocupacion: Ocupacion) {
         db.ocupacionDao.updateOcupacion(ocupacion)
     }
 
-    suspend fun deleteStudent(ocupacion: Ocupacion) {
+    suspend fun deleteOcupacion(ocupacion: Ocupacion) {
         db.ocupacionDao.deleteOcupacion(ocupacion)
     }
 

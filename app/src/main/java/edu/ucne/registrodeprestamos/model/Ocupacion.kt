@@ -8,5 +8,5 @@ data class Ocupacion (
     @PrimaryKey(autoGenerate = true)
     val ocupacionId: Int = 0,
     val descripcion: String = "",
-    val sueldo: Int = 0
+    val sueldo: Float = 0.00f
 )
