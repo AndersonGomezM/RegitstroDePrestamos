@@ -1,10 +1,5 @@
 package edu.ucne.registrodeprestamos.ui.ocupacion_list
 
-import android.content.Context
-import android.content.Intent
-import android.speech.RecognizerIntent
-import android.speech.SpeechRecognizer
-import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -18,10 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.hilt.navigation.compose.hiltViewModel
-import edu.ucne.registrodeprestamos.model.Ocupacion
-import edu.ucne.registrodeprestamos.ui.ocupacion.OcupacionViewModel
+import edu.ucne.registrodeprestamos.data.Entity.OcupacionEntity
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -59,7 +52,7 @@ fun OcupacionListScreen(
 
 @Composable
 fun OcupacionList(
-    ocupaciones: List<Ocupacion>,
+    ocupaciones: List<OcupacionEntity>,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = modifier) {
@@ -70,7 +63,7 @@ fun OcupacionList(
 }
 
 @Composable
-fun OcupacionRow(ocupacion: Ocupacion) {
+fun OcupacionRow(ocupacion: OcupacionEntity) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -104,13 +97,13 @@ fun OcupacionRow(ocupacion: Ocupacion) {
 fun DefaultPreview() {
     val lista = listOf(
 
-        Ocupacion(
+        OcupacionEntity(
             descripcion = "Contable",
-            sueldo = 5000.00f,
+            sueldo = 5000.00,
         ),
-        Ocupacion(
+        OcupacionEntity(
             descripcion = "Ingeniero Civil",
-            sueldo = 10000.00f,
+            sueldo = 10000.00,
         )
     )
 

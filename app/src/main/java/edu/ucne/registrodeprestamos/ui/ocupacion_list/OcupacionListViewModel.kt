@@ -1,10 +1,8 @@
 package edu.ucne.registrodeprestamos.ui.ocupacion_list
 
-import android.content.Context
-import android.speech.tts.TextToSpeech
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import edu.ucne.registrodeprestamos.model.Ocupacion
+import edu.ucne.registrodeprestamos.data.Entity.OcupacionEntity
 import edu.ucne.registrodeprestamos.repository.OcupacionRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 data class OcupacionListUiState(
-    val ocupaciones: List<Ocupacion> = emptyList(),
+    val ocupaciones: List<OcupacionEntity> = emptyList(),
     val texto: String = "Meeting"
 )
 

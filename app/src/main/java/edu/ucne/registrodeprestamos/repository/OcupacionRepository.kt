@@ -1,25 +1,24 @@
 package edu.ucne.registrodeprestamos.repository
 
-import edu.ucne.registrodeprestamos.data.AppDataBase
-import edu.ucne.registrodeprestamos.data.dao.OcupacionDao
-import edu.ucne.registrodeprestamos.model.Ocupacion
+import edu.ucne.registrodeprestamos.data.PrestamosDb
+import edu.ucne.registrodeprestamos.data.Entity.OcupacionEntity
 import javax.inject.Inject
 
-class OcupacionRepository @Inject constructor(val db: AppDataBase) {
+class OcupacionRepository @Inject constructor(val db: PrestamosDb) {
 
-    suspend fun insertOcupacion(ocupacion: Ocupacion) {
+    suspend fun insertOcupacion(ocupacion: OcupacionEntity) {
         db.ocupacionDao.insertOcupacion(ocupacion)
     }
 
-    suspend fun updateOcupacion(ocupacion: Ocupacion) {
+    suspend fun updateOcupacion(ocupacion: OcupacionEntity) {
         db.ocupacionDao.updateOcupacion(ocupacion)
     }
 
-    suspend fun deleteOcupacion(ocupacion: Ocupacion) {
+    suspend fun deleteOcupacion(ocupacion: OcupacionEntity) {
         db.ocupacionDao.deleteOcupacion(ocupacion)
     }
 
-    fun getOcupacion(id: Int) = db.ocupacionDao.getOcupacion(id)
+    fun getOcupacion(ocupacionId: Int) = db.ocupacionDao.getOcupacion(ocupacionId)
 
     fun getAll() = db.ocupacionDao.getAll()
 }
