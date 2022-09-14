@@ -4,34 +4,34 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import edu.ucne.registrodeprestamos.data.dao.OcupacionDao
-import edu.ucne.registrodeprestamos.data.Entity.OcupacionEntity
+import edu.ucne.registrodeprestamos.data.dao.PersonaDao
+import edu.ucne.registrodeprestamos.data.entity.PersonaEntity
 
 @Database(
-    version = 1,
-    entities = [OcupacionEntity::class],
+    version = 2,
+    entities = [PersonaEntity::class],
     exportSchema = false
 )
 
-abstract class PrestamosDb : RoomDatabase() {
-    abstract val ocupacionDao: OcupacionDao
+abstract class PersonaDb : RoomDatabase() {
+    abstract val personaDao: PersonaDao
 
     companion object{
 
         @Volatile
-        private var INSTANCE: PrestamosDb? = null
+        private var INSTANCE: PersonaDb? = null
 
-        fun getInstance(context: Context): PrestamosDb {
+        fun getInstance(context: Context): PersonaDb {
             synchronized(this){
                 var instance = INSTANCE
 
                 if(instance == null){
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        PrestamosDb::class.java,
-                        "Prestamos.db"
+                        PersonaDb::class.java,
+                        "Personas.db"
                     )
-                    .fallbackToDestructiveMigration()
+                        .fallbackToDestructiveMigration()
                         .build()
                     INSTANCE = instance
                 }

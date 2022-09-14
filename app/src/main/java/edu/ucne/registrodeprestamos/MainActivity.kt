@@ -51,9 +51,9 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.OcupacionListScreen.route
+                        startDestination = Screen.PersonaScreen.route
                     ) {
-                        composable(Screen.OcupacionListScreen.route) {
+                        composable(Screen.PersonaScreen.route) {
                             OcupacionListScreen(
 
                                 onClick = { navController.navigate(Screen.OcupacionScreen.route) }

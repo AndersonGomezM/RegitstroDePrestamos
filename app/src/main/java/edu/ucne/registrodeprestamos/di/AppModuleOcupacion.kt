@@ -2,7 +2,7 @@ package edu.ucne.registrodeprestamos.di
 
 import android.content.Context
 import androidx.room.Room
-import edu.ucne.registrodeprestamos.data.PrestamosDb
+import edu.ucne.registrodeprestamos.data.OcupacionDb
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,14 +12,14 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object AppModuleOcupacion {
     @Singleton
     @Provides
-    fun providesDababase(@ApplicationContext context: Context): PrestamosDb {
+    fun providesDababase(@ApplicationContext context: Context): OcupacionDb {
         return Room.databaseBuilder(
             context,
-            PrestamosDb::class.java,
-            "SpellingDb"
+            OcupacionDb::class.java,
+            "Ocupaciones.db"
         ).fallbackToDestructiveMigration().build()
     }
 }

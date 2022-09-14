@@ -1,9 +1,9 @@
-package edu.ucne.registrodeprestamos.data.Entity
+package edu.ucne.registrodeprestamos.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Ocupaciones")
+@Entity(tableName = "Personas")
 data class PersonaEntity (
     @PrimaryKey(autoGenerate = true)
     val personaId: Int = 0,

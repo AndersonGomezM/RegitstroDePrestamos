@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import edu.ucne.registrodeprestamos.data.Entity.OcupacionEntity
+import edu.ucne.registrodeprestamos.data.entity.OcupacionEntity
 import edu.ucne.registrodeprestamos.repository.OcupacionRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

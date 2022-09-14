@@ -1,7 +1,7 @@
 package edu.ucne.registrodeprestamos.data.dao
 
 import androidx.room.*
-import edu.ucne.registrodeprestamos.data.Entity.OcupacionEntity
+import edu.ucne.registrodeprestamos.data.entity.OcupacionEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

@@ -1,10 +1,10 @@
 package edu.ucne.registrodeprestamos.repository
 
-import edu.ucne.registrodeprestamos.data.PrestamosDb
-import edu.ucne.registrodeprestamos.data.Entity.OcupacionEntity
+import edu.ucne.registrodeprestamos.data.OcupacionDb
+import edu.ucne.registrodeprestamos.data.entity.OcupacionEntity
 import javax.inject.Inject
 
-class OcupacionRepository @Inject constructor(val db: PrestamosDb) {
+class OcupacionRepository @Inject constructor(val db: OcupacionDb) {
 
     suspend fun insertOcupacion(ocupacion: OcupacionEntity) {
         db.ocupacionDao.insertOcupacion(ocupacion)

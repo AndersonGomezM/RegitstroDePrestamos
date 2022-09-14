@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import edu.ucne.registrodeprestamos.data.Entity.OcupacionEntity
+import edu.ucne.registrodeprestamos.data.entity.OcupacionEntity
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
