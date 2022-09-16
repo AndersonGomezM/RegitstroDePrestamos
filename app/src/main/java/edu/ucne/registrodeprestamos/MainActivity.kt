@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.OcupacionScreen.route
+                        startDestination = Screen.OcupacionListScreen.route
                     ) {
                         composable(Screen.OcupacionListScreen.route) {
                             OcupacionListScreen(
@@ -67,13 +67,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true, showSystemUi = true)
-
-@Composable
-fun DefaultPreview() {
-    RegistroDePrestamosTheme {
     }
 }

@@ -1,24 +1,23 @@
 package edu.ucne.registrodeprestamos.data.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
-import edu.ucne.registrodeprestamos.model.Ocupacion
+import edu.ucne.registrodeprestamos.data.Entity.OcupacionEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface OcupacionDao {
-    @Insert
-    suspend fun insertOcupacion(ocupacion: Ocupacion)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertOcupacion(ocupacion: OcupacionEntity)
 
     @Update
-    suspend fun updateOcupacion(ocupacion: Ocupacion)
+    suspend fun updateOcupacion(ocupacion: OcupacionEntity)
 
     @Delete
-    suspend fun deleteOcupacion(ocupacion: Ocupacion)
+    suspend fun deleteOcupacion(ocupacion: OcupacionEntity)
 
     @Query("SELECT * FROM Ocupaciones WHERE ocupacionId = :id")
-    fun getOcupacion(id: Int): Flow<Ocupacion>
+    fun getOcupacion(id: Int): Flow<OcupacionEntity>
 
     @Query("SELECT * FROM Ocupaciones")
-    fun getAll(): Flow<List <Ocupacion>>
+    fun getAll(): Flow<List <OcupacionEntity>>
 }
