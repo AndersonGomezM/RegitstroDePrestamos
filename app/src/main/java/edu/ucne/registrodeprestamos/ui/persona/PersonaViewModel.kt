@@ -22,11 +22,11 @@ class PersonaViewModel @Inject constructor(
     var email by mutableStateOf("")
     var direccion by mutableStateOf("")
     var fechaNacimiento by mutableStateOf("")
-    var ocupacioId by mutableStateOf("")
+    var ocupacionId by mutableStateOf("")
 
-    fun Save(){
+    fun save(){
         viewModelScope.launch {
-            repository.insertPersona(
+            repository.insertarPersona(
                 PersonaEntity(
                     nombre = nombre,
                     telefono = telefono,
@@ -34,7 +34,7 @@ class PersonaViewModel @Inject constructor(
                     email = email,
                     direccion = direccion,
                     fechaNacimiento = fechaNacimiento,
-                    ocupacioId = ocupacioId.toInt()
+                    ocupacioId = ocupacionId.toInt()
                 )
             )
         }

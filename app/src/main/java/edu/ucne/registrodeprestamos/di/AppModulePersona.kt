@@ -11,18 +11,16 @@ import edu.ucne.registrodeprestamos.data.OcupacionDb
 import edu.ucne.registrodeprestamos.data.PersonaDb
 import javax.inject.Singleton
 
+@Module
+@InstallIn(SingletonComponent::class)
 object AppModulePersona {
-    @Module
-    @InstallIn(SingletonComponent::class)
-    object AppModulePersona {
-        @Singleton
-        @Provides
-        fun providesDababase(@ApplicationContext context: Context): PersonaDb {
-            return Room.databaseBuilder(
-                context,
-                PersonaDb::class.java,
-                "Personas.db"
-            ).fallbackToDestructiveMigration().build()
-        }
+    @Singleton
+    @Provides
+    fun providesDababase(@ApplicationContext context: Context): PersonaDb {
+        return Room.databaseBuilder(
+            context,
+            PersonaDb::class.java,
+            "Personas.db"
+        ).fallbackToDestructiveMigration().build()
     }
 }

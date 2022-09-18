@@ -27,7 +27,7 @@ class OcupacionListViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            repository.getAll().collect { list ->
+            repository.getList().collect { list ->
                 _uiState.update {
                     it.copy( ocupaciones = list )
                 }

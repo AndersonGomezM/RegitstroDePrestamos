@@ -29,7 +29,7 @@ abstract class PersonaDb : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         PersonaDb::class.java,
-                        "Personas.db"
+                        "Personas"
                     )
                         .fallbackToDestructiveMigration()
                         .build()

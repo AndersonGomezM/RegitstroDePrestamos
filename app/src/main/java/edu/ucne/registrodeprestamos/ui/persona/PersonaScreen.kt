@@ -46,7 +46,7 @@ fun PersonaScreen(
         },
         floatingActionButton = {
             FloatingActionButton(onClick = {
-                viewModel.Save()
+                viewModel.save()
                 onNavigateBack()
             }) {
                 Icon(imageVector = Icons.Default.Create, contentDescription = "Inserte una persona")
@@ -128,13 +128,13 @@ fun PersonaScreen(
                     DropdownMenuItem(onClick = {
                         expanded = false
                         ocupacionselected = ocupacion.descripcion
-                        viewModel.ocupacioId = ocupacionselected
+                        viewModel.ocupacionId = ocupacionselected
                     }) {
                         Text(text = ocupacion.descripcion)
                     }
                 }
             }
-            if(viewModel.ocupacioId.length <= 0)
+            if(viewModel.ocupacionId.length <= 0)
             {
                 Text(// 6
                     text = assistiveElementText,

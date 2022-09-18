@@ -6,26 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
 import edu.ucne.registrodeprestamos.ui.theme.RegistroDePrestamosTheme
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import android.speech.RecognizerIntent
-import android.speech.SpeechRecognizer
-import android.speech.tts.TextToSpeech
-import android.widget.Toast
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
-import androidx.core.app.ActivityCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -33,6 +15,7 @@ import edu.ucne.registrodeprestamos.ui.ocupacion.OcupacionScreen
 import edu.ucne.registrodeprestamos.ui.ocupacion_list.OcupacionListScreen
 import edu.ucne.registrodeprestamos.util.Screen
 import dagger.hilt.android.AndroidEntryPoint
+import edu.ucne.registrodeprestamos.ui.persona.PersonaScreen
 import java.util.*
 
 @AndroidEntryPoint
@@ -51,17 +34,16 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.PersonaScreen.route
+                        startDestination = Screen.OcupacionListScreen.route
                     ) {
-                        composable(Screen.PersonaScreen.route) {
+                        composable(Screen.OcupacionListScreen.route) {
                             OcupacionListScreen(
-
-                                onClick = { navController.navigate(Screen.OcupacionScreen.route) }
+                                onClick = { navController.navigate(Screen.PersonaScreen.route) }
                             )
                         }
 
-                        composable(Screen.OcupacionScreen.route) {
-                            OcupacionScreen({ navController.navigateUp() })
+                        composable(Screen.PersonaScreen.route) {
+                            PersonaScreen({ navController.navigateUp() })
                         }
                     }
                 }

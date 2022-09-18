@@ -19,9 +19,9 @@ class OcupacionViewModel @Inject constructor(
     var descripcion by mutableStateOf("")
     var sueldo by mutableStateOf("")
 
-    fun Save(){
+    fun save(){
         viewModelScope.launch {
-            repository.insertOcupacion(
+            repository.insertarOcupacion(
                 OcupacionEntity(
                     descripcion = descripcion,
                     sueldo = sueldo.toDouble()

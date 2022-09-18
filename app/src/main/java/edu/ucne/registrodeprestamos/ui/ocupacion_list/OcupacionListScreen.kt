@@ -6,11 +6,13 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.*
+import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -25,7 +27,10 @@ fun OcupacionListScreen(
 
     Scaffold(
         topBar = {
-            CenterAlignedTopAppBar(title = { Text("Lista de ocupaciones") })
+            CenterAlignedTopAppBar(title = {
+                Text("Lista de ocupaciones",
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis)})
         },
         floatingActionButton = {
             FloatingActionButton(onClick = onClick) {
@@ -62,34 +67,40 @@ fun OcupacionList(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OcupacionRow(ocupacion: OcupacionEntity) {
-    Column(
+    Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(4.dp)
+            .height(85.dp),
+        elevation = CardDefaults.cardElevation(16.dp),
+        colors = CardDefaults.cardColors(Color(0x1E2196F3)
+        )
     ) {
-        Text(
-            text = ocupacion.descripcion,
-            style = MaterialTheme.typography.titleLarge
-        )
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
+        Column(modifier = Modifier.fillMaxHeight(),
+            verticalArrangement = Arrangement.Center
         ) {
-            Text(
-                text = "Sueldo: ${ocupacion.sueldo}"
-            )
+            Row() {
+                Spacer(modifier = Modifier.width(15.dp))
+                Text(
+                    text = ocupacion.descripcion,
+                    style = MaterialTheme.typography.titleLarge
+                )
+            }
+            Row(
+                modifier = Modifier.padding(4.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+                Spacer(modifier = Modifier.width(15.dp))
+                Text(
+                    text = "Sueldo: ${ocupacion.sueldo}"
+                )
 
+            }
         }
-        Divider(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 4.dp),
-            color = Color.Black
-        )
     }
+    Spacer(modifier = Modifier.height(8.dp))
 }
 
 @Composable

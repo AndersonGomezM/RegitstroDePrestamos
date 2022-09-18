@@ -29,7 +29,7 @@ abstract class OcupacionDb : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         OcupacionDb::class.java,
-                        "Ocupaciones.db"
+                        "Ocupaciones"
                     )
                     .fallbackToDestructiveMigration()
                         .build()
