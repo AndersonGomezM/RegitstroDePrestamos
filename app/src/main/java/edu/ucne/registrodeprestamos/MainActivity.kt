@@ -15,7 +15,10 @@ import edu.ucne.registrodeprestamos.ui.ocupacion.OcupacionScreen
 import edu.ucne.registrodeprestamos.ui.ocupacion_list.OcupacionListScreen
 import edu.ucne.registrodeprestamos.util.Screen
 import dagger.hilt.android.AndroidEntryPoint
+import edu.ucne.registrodeprestamos.ui.home.HomeScreen
 import edu.ucne.registrodeprestamos.ui.persona.PersonaScreen
+import edu.ucne.registrodeprestamos.ui.persona_list.PersonaList
+import edu.ucne.registrodeprestamos.ui.persona_list.PersonaListScreen
 import java.util.*
 
 @AndroidEntryPoint
@@ -34,16 +37,33 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.OcupacionListScreen.route
+                        startDestination = Screen.HomeScreen.route
                     ) {
-                        composable(Screen.OcupacionListScreen.route) {
-                            OcupacionListScreen(
+                        composable(Screen.HomeScreen.route) {
+                            HomeScreen(
+                                onClickPersonas = { navController.navigate(Screen.PersonaListScreen.route) },
+                                onClickOcupaciones = { navController.navigate(Screen.OcupacionListScreen.route) }
+                            )
+                        }
+
+                        composable(Screen.PersonaListScreen.route) {
+                            PersonaListScreen(
                                 onClick = { navController.navigate(Screen.PersonaScreen.route) }
                             )
                         }
 
                         composable(Screen.PersonaScreen.route) {
                             PersonaScreen({ navController.navigateUp() })
+                        }
+
+                        composable(Screen.OcupacionListScreen.route) {
+                            OcupacionListScreen(
+                                onClick = { navController.navigate(Screen.OcupacionScreen.route) }
+                            )
+                        }
+
+                        composable(Screen.OcupacionScreen.route) {
+                            OcupacionScreen({ navController.navigateUp() })
                         }
                     }
                 }
